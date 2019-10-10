@@ -8,6 +8,9 @@ import { CarruselComponent } from './componets/carrusel/carrusel.component';
 import { FormularioComponent } from './componets/formulario/formulario.component';
 import { MainComponent } from './componets/main/main.component';
 import { SectionOneComponent } from './componets/section-one/section-one.component';
+import { GraciasComponent } from './componets/gracias/gracias.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './componets/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,13 @@ import { SectionOneComponent } from './componets/section-one/section-one.compone
     CarruselComponent,
     FormularioComponent,
     MainComponent,
-    SectionOneComponent
+    SectionOneComponent,
+    GraciasComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

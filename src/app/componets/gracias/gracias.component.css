@@ -1,0 +1,28 @@
+.main {
+    background-image: url('/assets/img/fondo.svg');
+}
+
+.button {
+    border-radius: 55px;
+    width: 204.56px;
+    height: 55px;
+    background-color: #FF6319;
+    margin: 76px 0 0 0;
+}
+
+@media only screen and (max-width:600px) {
+    .button {
+        border-radius: 55px;
+        width: 204.56px;
+        height: 55px;
+        background-color: #FF6319;
+        margin: 4% auto;
+    }
+    h2 {
+        margin: auto;
+    }
+    .caw {
+        text-align: center;
+        margin-top: 10%;
+    }
+}
