@@ -1,0 +1,16 @@
+.navbar {
+    padding: 0;
+}
+
+.navbar-brand {
+    margin: 0 168px 19.5px;
+    padding: 0;
+}
+
+@media only screen and (max-width:600px) {
+    .navbar-brand {
+        padding: 0;
+        margin: auto;
+        margin-bottom: 19.5px;
+    }
+}
