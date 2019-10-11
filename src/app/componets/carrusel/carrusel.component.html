@@ -6,24 +6,19 @@
 
     <div class="bd-example">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-
             <ol class="carrusel-info carousel-indicators d-flex justify-content-between">
+
                 <p class="font-weight-bold">Antes</p>
                 <p class="font-weight-bold">Después</p>
             </ol>
             <div class="carousel-inner">
-
                 <div class="carousel-item active">
-                    <img src="assets/img/sonrrisa.png" class="card-img-top" alt="">
+                    <img src="{{images[0].url}}" class="card-img-top" alt="">
                 </div>
-                <div class="carousel-item">
-                    <img src="assets/img/sonrrisa.png" class="card-img-top" alt="">
+                <div class="carousel-item" *ngFor="let image of images;">
+                    <img src="{{image.url}}" class="card-img-top" alt="">
+                </div>
 
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/sonrrisa.png" class="card-img-top" alt="">
-
-                </div>
                 <div class="control">
                     <a class="control-carrusel carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                         <i class="fas  fa-2x fa-chevron-left"></i>

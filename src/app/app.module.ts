@@ -11,6 +11,7 @@ import { SectionOneComponent } from './componets/section-one/section-one.compone
 import { GraciasComponent } from './componets/gracias/gracias.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './componets/home/home.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomeComponent } from './componets/home/home.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
