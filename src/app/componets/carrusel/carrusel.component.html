@@ -12,10 +12,8 @@
                 <p class="font-weight-bold">Después</p>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{images[0].url}}" class="card-img-top" alt="">
-                </div>
-                <div class="carousel-item" *ngFor="let image of images;">
+                <div class="carousel-item" *ngFor="let image of images;
+                    let primero = first;" [ngClass]="{'active': primero}">
                     <img src="{{image.url}}" class="card-img-top" alt="">
                 </div>
 

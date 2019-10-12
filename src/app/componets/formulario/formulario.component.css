@@ -1,7 +1,15 @@
+.color {
+    color: #002395;
+}
+
 .button {
     border-radius: 55px;
     width: 204.56px;
     height: 55px;
     background-color: #FF6319;
     margin: auto;
+}
+
+.ng-invalid.ng-touched:not(form) {
+    border: 1px solid red;
 }
