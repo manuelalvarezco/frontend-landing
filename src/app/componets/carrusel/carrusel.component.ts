@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { Image } from 'src/app/class/image';
+import { Image } from '../../interfaces/image';
+
 
 @Component({
   selector: 'app-carrusel',
@@ -9,22 +10,13 @@ import { Image } from 'src/app/class/image';
 })
 export class CarruselComponent implements OnInit {
 
-  images:any;
+  images:Image[];
 
-  constructor(private api: ApiService) { 
-
-    
-
-
-  }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
 
-    this.api.getImages()
-        .subscribe( (data:any)=> {
-          console.log(data)
-          this.images = data;
-        })
+    this.api.getImages().subscribe(images =>{this.images = images})
     
   }
 

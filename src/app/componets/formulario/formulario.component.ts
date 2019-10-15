@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
-import { Customer } from '../../class/customer';
-
+import { Customer } from '../../interfaces/customer';
 
 
 
@@ -16,11 +15,17 @@ import { Customer } from '../../class/customer';
 export class FormularioComponent implements OnInit {
 
  
+  customers:Customer[];
 
 
   forma:FormGroup;
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService) { 
+
+    
+
+
+  }
 
   ngOnInit() {
 
@@ -33,7 +38,11 @@ export class FormularioComponent implements OnInit {
   }
 
   guardar(){
-    console.log('Saved')
+  
+    console.log(this.forma.value);
+
+    this.apiService.addCustomer(this.forma.value).subscribe( data=> this.customers.push(this.forma.value) )
+    
   }
 
 }

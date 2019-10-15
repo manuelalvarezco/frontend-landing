@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
-import { Image } from '../class/image';
-import { Customer } from '../class/customer';
+import { Observable } from 'rxjs';
+import { Image } from '../interfaces/image';
+import { Customer } from '../interfaces/customer';
 
 
 
@@ -11,22 +12,27 @@ import { Customer } from '../class/customer';
 })
 export class ApiService {
 
-  private url = "http://127.0.0.1:8000/api";
+  headers:HttpHeaders = new HttpHeaders();
+  options:any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+   }
 
 
-  getImages(){
-    return this.http.get(`${this.url}/images`);
+  getImages():Observable<Image[]>{
+    return this.http
+    .get<Image[]>('http://localhost:8000/api/images')
   }
 
-  saveCustomer(customer:Customer){
-    
-      const headers = new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
+  addCustomer(customer:Customer):Observable<Customer>{
 
+    let headers = new HttpHeaders({
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    })
 
-    return this.http.post(`${this.url}/customer`, customer, {headers});
+    return this.http
+    .post<Customer>('http://localhost:8000/api/customer', customer,{headers})
+    .pipe( map( (data:Customer) => data ))
   }
 }
