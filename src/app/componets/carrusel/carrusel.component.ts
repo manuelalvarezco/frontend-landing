@@ -10,12 +10,15 @@ import { Image } from '../../interfaces/image';
 })
 export class CarruselComponent implements OnInit {
 
+  //Declaración de arreglo de tipo Image
   images:Image[];
 
+  //Inyección del servicio
   constructor(private api: ApiService) { }
 
   ngOnInit() {
 
+    //Llamado de función getImages() del servicio
     this.api.getImages().subscribe(images =>{this.images = images})
     
   }

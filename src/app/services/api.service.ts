@@ -32,20 +32,19 @@ export class ApiService {
   }
 
 
-  addCustomer(full_name:any, email:any, phone:any){
+  addCustomer(customer:Customer){
 
     let headers = new HttpHeaders({
       'Content-Type' : 'application/json'
     })
 
-    let body = JSON.stringify({
-      full_name: full_name,
-      email: email,
-      phone : phone
-    });
+
+
+    let body = JSON.stringify(customer);
 
     return this.http
-    .post('http://localhost:8000/api/customer', body,{headers});
+    .post('http://localhost:8000/api/customer', body,{headers})
+    .pipe( map( resp => resp ))
   }
 
 

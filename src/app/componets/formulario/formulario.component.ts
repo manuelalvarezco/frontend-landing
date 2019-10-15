@@ -40,12 +40,17 @@ export class FormularioComponent implements OnInit {
       type:'info',
       text:'Espere por favor'
     });
+
+
     Swal.showLoading();
-    this.apiService.addCustomer(this.forma.value.full_name,this.forma.value.email, this.forma.value.phone )
+
+    this.apiService.addCustomer(this.forma.value)
     .subscribe( data =>{
-      console.log(data) 
+
       Swal.close()
+
       this.router.navigateByUrl('/gracias')
+
     }, (err)=>{
       
       Swal.fire({
@@ -54,7 +59,7 @@ export class FormularioComponent implements OnInit {
         text:'Ha ocurrido un error'
       })
 
-      console.log(err)
+      
     }
     )
   }

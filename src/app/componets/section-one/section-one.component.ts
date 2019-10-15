@@ -18,8 +18,8 @@ export class SectionOneComponent implements OnInit {
 
     this.api.getTitulos()
     .subscribe(titulos =>{
-      this.titulos = titulos
-      //this.titulos = titulos[0].contenido
+      this.titulos = titulos;
+      this.items = titulos[0].contenido.items;
       console.log(titulos)
     })
 
