@@ -13,6 +13,12 @@ span {
     color: #002395;
 }
 
+@media only screen and (max-width:600px) {
+    .titulo {
+        text-align: center;
+    }
+}
+
 .content {
     margin-top: 25px;
 }

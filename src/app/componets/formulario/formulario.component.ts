@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Customer } from '../../interfaces/customer';
-
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 
 
@@ -20,12 +21,7 @@ export class FormularioComponent implements OnInit {
 
   forma:FormGroup;
 
-  constructor(private apiService:ApiService) { 
-
-    
-
-
-  }
+  constructor(private apiService:ApiService, private router:Router) {  }
 
   ngOnInit() {
 
@@ -38,11 +34,29 @@ export class FormularioComponent implements OnInit {
   }
 
   guardar(){
-  
-    console.log(this.forma.value);
 
-    this.apiService.addCustomer(this.forma.value).subscribe( data=> this.customers.push(this.forma.value) )
-    
+    Swal.fire({
+      allowOutsideClick:false,
+      type:'info',
+      text:'Espere por favor'
+    });
+    Swal.showLoading();
+    this.apiService.addCustomer(this.forma.value.full_name,this.forma.value.email, this.forma.value.phone )
+    .subscribe( data =>{
+      console.log(data) 
+      Swal.close()
+      this.router.navigateByUrl('/gracias')
+    }, (err)=>{
+      
+      Swal.fire({
+        type:'error',
+        title:'Ocurrio un error al enviar los datos',
+        text:'Ha ocurrido un error'
+      })
+
+      console.log(err)
+    }
+    )
   }
 
 }

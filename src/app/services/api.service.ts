@@ -4,6 +4,7 @@ import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Image } from '../interfaces/image';
 import { Customer } from '../interfaces/customer';
+import { Titulo } from '../interfaces/titulo';
 
 
 
@@ -25,14 +26,27 @@ export class ApiService {
     .get<Image[]>('http://localhost:8000/api/images')
   }
 
-  addCustomer(customer:Customer):Observable<Customer>{
+  getTitulos():Observable<Titulo[]>{
+    return this.http
+    .get<Titulo[]>('http://localhost:8000/api/titulos')
+  }
+
+
+  addCustomer(full_name:any, email:any, phone:any){
 
     let headers = new HttpHeaders({
-      'Content-Type' : 'application/x-www-form-urlencoded'
+      'Content-Type' : 'application/json'
     })
 
+    let body = JSON.stringify({
+      full_name: full_name,
+      email: email,
+      phone : phone
+    });
+
     return this.http
-    .post<Customer>('http://localhost:8000/api/customer', customer,{headers})
-    .pipe( map( (data:Customer) => data ))
+    .post('http://localhost:8000/api/customer', body,{headers});
   }
+
+
 }

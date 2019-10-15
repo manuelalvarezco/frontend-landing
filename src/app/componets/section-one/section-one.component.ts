@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
+import { Titulo } from 'src/app/interfaces/titulo';
 
 @Component({
   selector: 'app-section-one',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionOneComponent implements OnInit {
 
-  constructor() { }
+  titulos:Titulo[];
+  items;
+
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+
+    this.api.getTitulos()
+    .subscribe(titulos =>{
+      this.titulos = titulos
+      //this.titulos = titulos[0].contenido
+      console.log(titulos)
+    })
+
+   
   }
 
 }

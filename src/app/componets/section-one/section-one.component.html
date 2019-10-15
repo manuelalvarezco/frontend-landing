@@ -1,40 +1,14 @@
-<section class="content container">
-    <h1 class="titulo col-md-8">
-        Queremos que tengas la mejor versión de tu sonrrisa, para toda la vida
+<section class="content container animated fadeIn fast">
+    <h1 class="titulo col-md-8 " *ngFor="let titulo of titulos">
+        {{titulo.titulo}}
     </h1>
     <div class="container">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <span>
+            <li class="list-group-item" *ngFor="let item of titulos[0].contenido.items">
+                <span *ngIf="item">
                         <i class="fas fa-check"></i>
-                    </span> Recupera la apariencia física como si fuera un diente natural. ‘Altamente estéticos”
-            </li>
-            <li class="list-group-item">
-                <span>
-                        <i class="fas fa-check"></i>
-                    </span> Recupera la apariencia física como si fuera un diente natural. ‘Altamente estéticos”
-            </li>
-            <li class="list-group-item">
-                <span>
-                        <i class="fas fa-check"></i>
-                    </span> Recupera la apariencia física como si fuera un diente natural. ‘Altamente estéticos”
-            </li>
-            <li class="list-group-item">
-                <span>
-                        <i class="fas fa-check"></i>
-                    </span> Recupera la apariencia física como si fuera un diente natural. ‘Altamente estéticos”
-            </li>
-            <li class="list-group-item">
-                <span>
-                        <i class="fas fa-check"></i>
-                    </span> Recupera la apariencia física como si fuera un diente natural. ‘Altamente estéticos”
-            </li>
-            <li class="list-group-item">
-                <span>
-                        <i class="fas fa-check"></i>
-                    </span> Recupera la apariencia física como si fuera un diente natural. ‘Altamente estéticos”
+                    </span> {{item}}
             </li>
         </ul>
-
     </div>
 </section>
