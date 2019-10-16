@@ -19,7 +19,11 @@ export class CarruselComponent implements OnInit {
   ngOnInit() {
 
     //Llamado de función getImages() del servicio
-    this.api.getImages().subscribe(images =>{this.images = images})
+    this.api.getImages()
+    .subscribe(images =>{
+      console.log(images)
+      this.images = images
+    })
     
   }
 

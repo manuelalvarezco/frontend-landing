@@ -31,6 +31,23 @@ export class ApiService {
     .get<Titulo[]>('http://localhost:8000/api/titulos')
   }
 
+  getItems(){
+    return this.http
+    .get<Titulo[]>('http://localhost:8000/api/titulos')
+    .pipe( 
+      map( (resp:any)=>{
+          let items:any[] = [];
+          for(let titulo of resp){
+              let item = titulo.contenido.items;
+              items.push(item);  
+          }
+          return items;
+      })
+
+      
+    )
+  }
+
 
   addCustomer(customer:Customer){
 

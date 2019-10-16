@@ -9,18 +9,25 @@ import { Titulo } from 'src/app/interfaces/titulo';
 })
 export class SectionOneComponent implements OnInit {
 
-  titulos:Titulo[];
-  items;
+  titulos:any[] = [];
+  items:any[] = [];
 
   constructor(private api:ApiService) { }
 
   ngOnInit() {
 
+    this.api.getItems()
+    .subscribe(items =>{
+      console.log(items)
+      this.items = items;
+    })
+
     this.api.getTitulos()
     .subscribe(titulos =>{
-      this.titulos = titulos;
       console.log(titulos)
+      this.titulos = titulos;
     })
+
 
    
   }
